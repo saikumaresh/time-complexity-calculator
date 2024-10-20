@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Complexity Calculator</title>
+</head>
+<body>
+    <h1>Time Complexity Calculator</h1>
+    
+    <p>Input your code below to calculate the time complexity:</p>
+    
+    <form method="POST" id="codeForm">
+        {% csrf_token %}
+        <textarea name="code" id="code" rows="10" cols="50" placeholder="Paste your code here..."></textarea>
+        <br>
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('codeForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+            let response = await fetch('', {
+                method: 'POST',
+                body: formData
+            });
+            let result = await response.json();
+            document.getElementById('result').innerHTML = `<p>Time Complexity: ${result.complexity}</p>`;
+        });
+    </script>
+</body>
+</html>

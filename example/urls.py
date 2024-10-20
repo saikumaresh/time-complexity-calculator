@@ -1,9 +1,6 @@
-# example/urls.py
 from django.urls import path
-
-from example.views import index
-
+from .views import time_complexity_view
 
 urlpatterns = [
-    path('', index),
+    path('', time_complexity_view, name='time_complexity'),
 ]
