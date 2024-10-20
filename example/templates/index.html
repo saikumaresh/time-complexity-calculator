@@ -8,6 +8,20 @@
 <body>
     <h1>Time Complexity Calculator</h1>
     
+    <h2>What is Big O Notation?</h2>
+    <p>
+        Big O notation is a mathematical representation used to describe the efficiency of algorithms in terms of their time complexity. It provides a way to express how an algorithm's runtime scales with the size of the input data. Here are some common complexities:
+        <ul>
+            <li><strong>O(1):</strong> Constant time, regardless of input size.</li>
+            <li><strong>O(n):</strong> Linear time, scales proportionally with input size.</li>
+            <li><strong>O(n log n):</strong> Logarithmic time, common in efficient sorting algorithms.</li>
+            <li><strong>O(n^2):</strong> Quadratic time, typically occurs with nested loops.</li>
+            <li><strong>O(2^n):</strong> Exponential time, seen in recursive algorithms with many branches.</li>
+            <li><strong>O(n!):</strong> Factorial time, very inefficient, found in brute force solutions.</li>
+        </ul>
+    </p>
+
+
     <p>Input your code below to calculate the time complexity:</p>
     
     <form method="POST" id="codeForm">
@@ -29,6 +43,8 @@
             });
             let result = await response.json();
             document.getElementById('result').innerHTML = `<p>Time Complexity: ${result.complexity}</p>`;
+            <!-- result.html -->
+            <img src="data:image/png;base64,{{ graph }}" alt="Complexity Graph" />
         });
     </script>
 </body>
